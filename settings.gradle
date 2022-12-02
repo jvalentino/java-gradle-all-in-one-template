@@ -1,11 +1,4 @@
 
-pluginManagement {
-    repositories {
-        mavenLocal()
-        mavenCentral()
-        gradlePluginPortal()
-    }
-}
 
 rootProject.name = 'java-gradle-all-in-one-template'
 

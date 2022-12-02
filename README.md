@@ -76,9 +76,50 @@ plugins {
 
 Consider that once this plugin is externalized, you don't need anything but this last step (with whatever the appropriate published version is).
 
-## Configuration Theory 2
+## In Use: Configuration Theory 2: Local Jar
 
-TBD
+The problem with this approach is that you first have to build the jars:
+
+```
+gradle clean build
+```
+
+...where then all you have to do is modify build.gradle in the lib project to refer to these jars locally:
+
+```groovy
+buildscript {
+
+    dependencies {
+        classpath files('../plugin/build/libs/plugin.jar')
+        classpath files('../plugin-betterTest/build/libs/plugin-betterTest.jar')
+    }
+
+}
+
+plugins {
+    id 'java-library'
+    id "com.adarshr.test-logger" version "3.2.0"
+}
+
+apply plugin: example.gradle.plugin.BetterTestPlugin
+apply plugin: example.gradle.plugin.ExampleGradlePluginPlugin
+```
+
+The big difference is that you have to use `buildscript` to define how to add the jars to the classpath, and then have to use the old style `apply plugin`.
+
+You then can run the tasks from the custom plugins:
+
+```bash
+% gradle greeting
+
+> Configure project :lib
+testing closure 2
+
+> Task :lib:greeting
+Hi from plugin 'example.gradle.plugin.greeting'
+```
+
+
 
 # Operation
 

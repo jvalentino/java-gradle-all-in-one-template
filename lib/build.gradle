@@ -1,11 +1,21 @@
+buildscript {
 
+    dependencies {
+        classpath files('../plugin/build/libs/plugin.jar')
+        classpath files('../plugin-betterTest/build/libs/plugin-betterTest.jar')
+    }
+
+}
 
 plugins {
     id 'java-library'
     id "com.adarshr.test-logger" version "3.2.0"
     //id "example.gradle.plugin.greeting" version "1.0.0"
-    id "example.gradle.plugin.betterTest" version "1.0.0"
+    //id "example.gradle.plugin.betterTest" version "1.0.0"
 }
+
+apply plugin: example.gradle.plugin.BetterTestPlugin
+apply plugin: example.gradle.plugin.ExampleGradlePluginPlugin
 
 repositories {
     // Use Maven Central for resolving dependencies.
