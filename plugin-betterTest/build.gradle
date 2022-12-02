@@ -27,9 +27,9 @@ dependencies {
 gradlePlugin {
     // Define the plugin
     plugins {
-        greeting {
-            id = 'example.gradle.plugin.greeting'
-            implementationClass = 'example.gradle.plugin.ExampleGradlePluginPlugin'
+        betterTest {
+            id = 'example.gradle.plugin.betterTest'
+            implementationClass = 'example.gradle.plugin.BetterTestPlugin'
         }
     }
 }

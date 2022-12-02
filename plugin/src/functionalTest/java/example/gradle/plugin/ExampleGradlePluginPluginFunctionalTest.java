@@ -45,7 +45,7 @@ class ExampleGradlePluginPluginFunctionalTest {
         BuildResult result = runner.build();
 
         // Verify the result
-        assertTrue(result.getOutput().contains("Hello from plugin 'example.gradle.plugin.greeting'"));
+        assertTrue(result.getOutput().contains("Hi from plugin 'example.gradle.plugin.greeting'"));
     }
 
     private void writeString(File file, String string) throws IOException {

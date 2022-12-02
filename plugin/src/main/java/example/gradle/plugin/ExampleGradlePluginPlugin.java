@@ -13,7 +13,7 @@ public class ExampleGradlePluginPlugin implements Plugin<Project> {
     public void apply(Project project) {
         // Register a task
         project.getTasks().register("greeting", task -> {
-            task.doLast(s -> System.out.println("Hello from plugin 'example.gradle.plugin.greeting'"));
+            task.doLast(s -> System.out.println("Hi from plugin 'example.gradle.plugin.greeting'"));
         });
     }
 }

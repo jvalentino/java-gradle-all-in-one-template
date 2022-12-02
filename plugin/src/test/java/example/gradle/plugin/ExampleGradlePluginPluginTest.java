@@ -8,7 +8,6 @@ import org.gradle.api.Project;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import example.gradle.plugin.ExampleGradlePluginPlugin;
 
 /**
  * A simple unit test for the 'example.gradle.plugin.greeting' plugin.
@@ -19,7 +18,8 @@ class ExampleGradlePluginPluginTest {
         Project project = ProjectBuilder.builder().build();
         System.out.println(project.getPlugins());
         
-        project.getPlugins().apply("example.gradle.plugin.greeting");
+        //project.getPlugins().apply("example.gradle.plugin.greeting");
+        project.getPlugins().apply(ExampleGradlePluginPlugin.class);
 
         // Verify the result
         assertNotNull(project.getTasks().findByName("greeting"));
